@@ -11,10 +11,18 @@ before_script:
 - haxelib git debugger https://github.com/TiVo/debugger.git
 - mkdir build
 - mkdir report
-script: make test
+script: make
 env:
     - IDEA_VERSION=13.1.6
     - IDEA_VERSION=14.0.4
     - IDEA_VERSION=14.1.1
 notifications:
   email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: F/eDDr9VWX7D/MUt8HPfppOL/OpMy3pjenuR5A1s6HwNXZD906nnhxvDfDRAnTu78L2+N2Pu2HOkNhQNC66XTHcwqF0KfAadWQXG+4zeV77V4wIkNwmMFnxED78zAi/xXUKgui1kZWPc9I1ZAQ45D3vxRz3BUjYlw8am3FPG66Y=
+  file: intellij-haxe.jar
+  skip_cleanup: true
+  on:
+    tags: true
